@@ -1,0 +1,41 @@
+$brown: #76511e;
+$turquoise: #3394bb;
+$emerald: #1b7d54;
+$gold: #ecec71;
+
+
+.book-shelf {
+    width: 60%;
+    height: 120%;
+    margin: 0 auto;
+    border: 10px brown solid;
+    overflow: hidden;
+    background-color: black;
+}
+
+
+.book-spine {
+    height: 200px;
+    width: 40px;
+    float: left;
+    color: white;
+    font-size: 0.9em;
+    font-family: Verdana, sans-serif;
+    margin: 15px 3px 10px;
+    transition: transform 0.5s ease;
+    border: 1rem groove;
+}
+
+
+.book-spine:hover {
+    transform: scale(1.25);
+}
+
+
+.book-spine h2 {
+    padding: 0;
+    font-size: 1em;
+    transform-origin: 0% 0%;
+    transform: rotate(0.25turn) translateY(-35px);
+    width: 170px;
+  }

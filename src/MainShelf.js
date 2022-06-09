@@ -1,21 +1,20 @@
 import React from 'react';
 import Books from './Books';
-import Book from './Book';
 import BookFilter from './BookFilter';
 
 const MainShelf = ({ bookData }) => {
     const bookSpines = bookData.map(book => {
         return (
-            <Book className="book-spine" key={book.id} to={`/books/${book.id}`}>
+            <Books className="book-spine" key={book.id} to={`/books/${book.id}`}>
                 <h2>${book.title}</h2>
-            </Book>
+            </Books>
         )
     })
 
     return (
-        <section className="book-wrapper">
+        <section className="shelf-wrapper">
             < BookFilter />
-            <section className="book-container">
+            <section className="book-shelf">
                 {bookSpines}
             </section>
         </section>
