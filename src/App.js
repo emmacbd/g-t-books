@@ -1,25 +1,36 @@
-import logo from './logo.svg';
+import React from 'React';
 import './App.css';
+import { Route } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      books: [],
+      filteredBooks: [],
+      savedBooks: []
+    }
+  }
+  render() {
+    return (
+      <div className="App">
+        <header>
+          <Navbar />
+        </header>
+        <main className="shelf-display">
+        <Route exact path='/' render={() => <MainShelf allBooks={this.state.filteredBooks}/>}/>
+        <Route exact path="/my-shelf"/>
+        </main>
+      </div>
+    )
+  }
+
+
+
+
 }
+
 
 export default App;
