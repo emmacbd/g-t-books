@@ -32,6 +32,7 @@ class App extends Component {
     return (
       <div className="App">
         <header>
+          <h1>GÜT BOOKS</h1>
           <Navbar />
         </header>
         <main className="shelf-display">

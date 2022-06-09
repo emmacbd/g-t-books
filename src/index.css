@@ -1,11 +1,12 @@
 html {
   height: 100%;
+  /* background: url(books.jpeg) no-repeat; */
+  background-size: cover;
 }
 
 body {
-  background-color: rgb(255, 199, 208);
   height: 100%;
-  margin: none;
+  /* margin: none; */
 }
 
 header {
