@@ -6,15 +6,16 @@ import '../styles/MainShelf.scss';
 
 //add title conditional 
 
-function MainShelf({ bookData }) {
-    const bookSpines = bookData.map(book => {
+function MainShelf({ bookDrop, filterBooks }) {
+    const bookSpines = bookDrop.map(book => {
         return (
-            <Books title={book.title.substring(0, 30) + '...'} />
+            <Books key={book.id} title={book.title.substring(0, 30) + '...'} />
         );
     });
 
     return (
         <section className="shelf-wrapper">
+            <BookFilter filterBooks={filterBooks} />
             <section className="book-shelf">
                 {bookSpines}
             </section>
