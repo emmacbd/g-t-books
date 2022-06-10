@@ -9,7 +9,7 @@ import '../styles/MainShelf.scss';
 function MainShelf({ bookDrop, filterBooks }) {
     const bookSpines = bookDrop.map(book => {
         return (
-            <Books key={book.id} title={book.title.substring(0, 30) + '...'} />
+            <Books key={book.id} title={book.title.substring(0, 39)} />
         );
     });
 
@@ -17,7 +17,7 @@ function MainShelf({ bookDrop, filterBooks }) {
         <section className="shelf-wrapper">
             <BookFilter filterBooks={filterBooks} />
             <section className="book-shelf">
-                {bookSpines}
+                {bookSpines }
             </section>
         </section>
     );
