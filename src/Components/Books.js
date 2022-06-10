@@ -1,10 +1,10 @@
 import React from 'react';
-import './Books.css';
+import '../styles/Books.css';
 
 
-const Books = ({title}) => {
+const Books = ({ title }) => {
     return (
-        <div className="book-title">
+        <div className="book">
             <h1>{title}</h1>
         </div>
     )
