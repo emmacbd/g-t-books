@@ -1,0 +1,33 @@
+.book {
+    height: 200px;
+    width: 55px;
+    float: left;
+    color: rgb(234, 223, 223);
+    font-size: 1em;
+    font-family: Verdana, sans-serif;
+    margin: 15px 1px 10px;
+    border-top: .75rem groove;
+    transition: transform 0.4s ease;
+    border-radius: 5%;
+    background-color: #0b2741;
+    border-left: 4px solid lighten(#0b2741, 6%);
+    border-right: 4px solid darken(#0b2741, 6%);
+    padding-left: 1%;
+
+}
+
+
+.book:hover {
+    transform: scale(1.25);
+    cursor: pointer;
+}
+
+
+.book h3 {
+    font-size: 1.1em;
+    font-family: 'Joan', serif;
+    transform-origin: 0% 0%;
+    transform: rotate(0.25turn) translateY(-35px);
+    margin-bottom: 2%;
+    width: 170px;
+}
