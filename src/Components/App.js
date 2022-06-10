@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import { fetchBooks } from '../apiCalls';
 import MainShelf from './MainShelf';
 import SaveShelf from './SaveShelf';
-import Navbar from './Navbar';
+// import Navbar from './Navbar';
 import '../styles/App.css';
 
 
@@ -32,7 +32,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header>
+        <header className="header">
           <h1>GÜT BOOKS</h1>
         </header>
         <main className="shelf-display">

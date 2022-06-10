@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Books.css';
+import '../styles/Books.scss';
 
 
 const Books = ({ title }) => {
