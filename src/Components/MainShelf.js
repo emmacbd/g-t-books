@@ -3,18 +3,18 @@ import Books from './Books';
 import BookFilter from './BookFilter';
 import '../styles/MainShelf.scss';
 
+
+//add title conditional 
+
 function MainShelf({ bookData }) {
     const bookSpines = bookData.map(book => {
         return (
-            <Books className="book-spine" key={book.id}>
-                <h2>${book.title}</h2>
-            </Books>
+            <Books title={book.title.substring(0, 30) + '...'} />
         );
     });
 
     return (
         <section className="shelf-wrapper">
-            <BookFilter />
             <section className="book-shelf">
                 {bookSpines}
             </section>

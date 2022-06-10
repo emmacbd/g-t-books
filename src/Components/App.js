@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { fetchBooks } from '../apiCalls';
-// import Navbar from './Navbar';
 import MainShelf from './MainShelf';
 import SaveShelf from './SaveShelf';
-// import Footer from './Footer';
+import Navbar from './Navbar';
 import '../styles/App.css';
 
 
@@ -54,3 +53,4 @@ class App extends Component {
 
 
 export default App;
+
