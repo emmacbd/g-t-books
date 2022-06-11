@@ -1,0 +1,12 @@
+.book-filter {
+    background: rgb(56 16 51);
+    color: #fff;
+    font-size: 25px;
+    margin-bottom: 5%;
+    height: 8vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}

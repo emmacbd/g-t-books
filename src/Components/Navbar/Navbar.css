@@ -1,0 +1,13 @@
+.nav-bar, .nav-link {
+    display: flex;
+    flex-direction: column;
+    font-weight: bolder;
+    background: rgb(56 16 51);
+    color: #fff;
+    font-size: 25px;
+    margin-bottom: 0%;
+}
+
+.active {
+    color: rgb(110, 196, 225);
+}

@@ -1,0 +1,25 @@
+$brown: #76511e;
+$turquoise: #3394bb;
+$emerald: #1b7d54;
+$gold: #ecec71;
+
+
+.save-shelf {
+    width: 75%;
+    height: 100%;
+    margin: 0 auto;
+    margin-top:5%;
+    border: 10px $brown solid;
+    overflow: hidden;
+    border-radius: 1%;
+    background-image: linear-gradient(darken($brown, 22%), darken($brown, 30%) 220px,
+            lighten($brown, 3%) 220px, lighten($brown, 3%) 222px,
+            $brown 222px, $brown 228px,
+            darken($brown, 3%) 228px, darken($brown, 3%) 230px);
+    background-size: 10px 230px;
+    box-shadow: 5px 10px $brown ;
+}
+
+.shelf-wrapper {
+    height: 100vh;
+}
