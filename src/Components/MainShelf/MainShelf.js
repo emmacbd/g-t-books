@@ -2,7 +2,6 @@ import React from 'react';
 import Books from '../Books/Books';
 import BookFilter from '../BookFilter/BookFilter';
 import { NavLink } from 'react-router-dom';
-import Loading from '../Loading/Loading';
 import './MainShelf.scss';
 
 

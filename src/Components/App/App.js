@@ -13,9 +13,9 @@ import './App.css';
 
 const App = () => {
   const [allBooks, setBooks] = useState([])
+  const [filteredBooks, setFilter] = useState([])
   const [savedBooks, setSaved] = useState([])
   const [error, setError] = useState('')
-  const [isLoading, setIsLoading] = useState(true)
 
 
   useEffect(() => {
@@ -24,17 +24,22 @@ const App = () => {
       .catch(error => setError(error.message))
   }, [])
 
+  useEffect(() => {
+    fetchBooks.getBookData()
+      .then(data => setFilter(data.results))
+      .catch(error => setError(error.message))
+  }, [])
 
   const filterBooks = (subject) => {
     if (subject === 'Any') {
-      setBooks(allBooks)
+      setFilter(allBooks)
     } else {
       let filtBySubject = allBooks.filter(book => {
         let combinedSubjects = book.subjects.join(' ')
         return combinedSubjects.includes(subject)
 
       })
-      setBooks(filtBySubject)
+      setFilter(filtBySubject)
     }
   }
 
@@ -60,7 +65,7 @@ const App = () => {
         < Navbar />
         <Switch >
           <Route exact path='/'>
-            {allBooks ? <MainShelf bookDrop={allBooks} filterBooks={filterBooks} /> : <Loading />}
+            {allBooks ? <MainShelf bookDrop={filteredBooks} filterBooks={filterBooks} /> : <Loading />}
           </Route>
 
           <Route exact path='/saved'>
