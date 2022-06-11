@@ -12,13 +12,16 @@ const fetchBooks = {
 }
 
 
-async function fetchSingleBook(id) {
-    const response = await fetch(`https://gutendex.com/books/${id}`)
-    if (!response.ok) {
-        throw new Error('Network response was not OK')
-    }
-    const singleBook = response.json()
-    return singleBook
+const fetchSingleBook = (id) => {
+    return fetch(`https://gutendex.com/books/${id}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('error')
+            } else {
+                const singleBook = response.json()
+                return singleBook
+            }
+        })
 }
 
 export { fetchBooks, fetchSingleBook }
