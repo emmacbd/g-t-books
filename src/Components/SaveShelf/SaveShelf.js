@@ -19,7 +19,6 @@ const SaveShelf = ({ savedBooks, filterBooks }) => {
 
     return (
         <section className="shelf-wrapper">
-            <BookFilter filterBooks={filterBooks} />
             <section className="save-shelf">
                 {savedSpines.length === 0 ?
                     <EmptyShelf />
