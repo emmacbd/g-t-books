@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { fetchSingleBook } from '../apiCalls';
-import '../styles/BookDetails.css';
+import { fetchSingleBook } from '../../apiCalls';
+import './BookDetails.css';
 
 
 
-const BookDetails = ({ bookId, saveBook }) => {
+const BookDetails = ({ bookId, saveBook, savedBooks, removeBook }) => {
     const [bookInfo, setBook] = useState()
 
     useEffect(() => {
@@ -12,7 +12,11 @@ const BookDetails = ({ bookId, saveBook }) => {
             .then(data => setBook(data))
     }, [])
 
+    const isSaved = () => {
+        if (!savedBooks.includes(bookInfo)) {
 
+        }
+    }
 
     let showBook = () => {
         if (!bookInfo) {
@@ -25,7 +29,7 @@ const BookDetails = ({ bookId, saveBook }) => {
                     <div className="selected-book-details">
                         <p>Author : {bookInfo.authors.name}</p>
                         <p>Text : {bookInfo.formats.html} </p>
-                        <button onClick={() => saveBook(bookInfo)}>Add To My Shelf</button>
+                        {(!isSaved) ? <button onClick={() => saveBook(bookInfo)}>Add To My Shelf</button> : ' '}
                     </div>
                 </div>
             </section>

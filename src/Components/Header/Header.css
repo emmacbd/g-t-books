@@ -1,0 +1,6 @@
+.header {
+    background: url(./assets/books.jpeg) center fixed;
+    background-size: cover;
+    width: 100vw;
+    padding-top: 1%;
+  }

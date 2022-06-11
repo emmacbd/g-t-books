@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { fetchBooks } from './apiCalls';
-import MainShelf from './Components/MainShelf';
-import SaveShelf from './Components/SaveShelf';
-import BookDetails from './Components/BookDetails';
-import Navbar from './Components/Navbar';
+import { fetchBooks } from '../../apiCalls';
+import MainShelf from '../MainShelf/MainShelf';
+import SaveShelf from '../SaveShelf/SaveShelf';
+import BookDetails from '../BookDetails/BookDetails';
+import Header from '../Header/Header';
+import Navbar from '../Navbar/Navbar';
 import './App.css';
 
 
@@ -43,38 +44,43 @@ class App extends Component {
   }
 
   saveBook = (book) => {
+
     if (!this.state.savedBooks.includes(book)) {
-      console.log('saved book', book)
-      this.setState({ savedBooks: [...this.state.savedBooks, book ]})
-      console.log(this.state.savedBooks)
+      this.setState({ savedBooks: [...this.state.savedBooks, book] })
     }
 
+  }
+
+  removeBook = (id) => {
+    const updatedBooks = this.state.savedBooks.filter(book => book.id != id);
+
+    this.setState({ savedBooks: updatedBooks });
+  
   }
 
 
   render() {
     return (
+      <>
       <div className="App">
-        <header className="header">
-          <h1>GÜT  BOOKS</h1>
-          < Navbar />
-        </header>
-        <main className="shelf-display">
+        <Header />
+        <main className="main">
           <Switch >
             <Route exact path='/' render={() =>
               <MainShelf bookDrop={this.state.filteredBooks} filterBooks={this.filterBooks} />} />
 
-            <Route path="/saved" render={() => {
+            <Route exact path='/saved' render={() => {
               <SaveShelf savedBooks={this.state.savedBooks} filterBooks={this.filterBooks} />
             }} />
             <Route path='/:id' render={({ match }) => {
               let bookToRender = this.state.bookData.find(book => book.id === match.params.id)
-              return <BookDetails {...bookToRender} bookId={match.params.id} saveBook={this.saveBook} />
+              return <BookDetails {...bookToRender} bookId={match.params.id} saveBook={this.saveBook} savedBooks={this.state.savedBooks} removeBook={this.removeBook}/>
             }} />
           </Switch>
 
         </main>
       </div>
+      </>
     )
   }
 

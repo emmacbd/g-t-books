@@ -1,12 +1,13 @@
 import React from 'react';
-import Books from '../Components/Books';
+import Books from '../Books/Books';
 import { NavLink } from 'react-router-dom';
-import BookFilter from '../Components/BookFilter';
-import '../styles/MainShelf.scss';
+import BookFilter from '../BookFilter/BookFilter';
+import './SaveShelf.scss';
 
 
 const SaveShelf = ({ savedBooks, filterBooks }) => {
-    const savedSpines = savedBooks.map(book => {
+    console.log('Where me saved books', savedBooks)
+    let savedSpines = savedBooks.map(book => {
         return (
             <NavLink className="book-nav" key={book.id} id={book.id} to={`/${book.id}`}>
                 <Books title={book.title.substring(0, 39)} />
@@ -17,7 +18,7 @@ const SaveShelf = ({ savedBooks, filterBooks }) => {
     return (
         <section className="shelf-wrapper">
             <BookFilter filterBooks={filterBooks} />
-            <section className="book-shelf">
+            <section className="save-shelf">
                 {savedSpines}
             </section>
         </section>

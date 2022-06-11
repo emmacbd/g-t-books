@@ -1,14 +1,14 @@
 import React from 'react';
-import Books from './Books';
-import BookFilter from './BookFilter';
+import Books from '../Books/Books';
+import BookFilter from '../BookFilter/BookFilter';
 import { NavLink } from 'react-router-dom';
-import '../styles/MainShelf.scss';
+import './MainShelf.scss';
 
 
 //add title conditional 
 
 const MainShelf = ({ bookDrop, filterBooks }) => {
-    console.log('what is going on', bookDrop)
+    console.log('made it to main')
     const bookSpines = bookDrop.map(book => {
         return (
             <NavLink className="book-nav" key={book.id} id={book.id} to={`/${book.id}`}>
