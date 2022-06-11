@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { fetchBooks } from './apiCalls';
 import MainShelf from './Components/MainShelf';
@@ -9,94 +9,77 @@ import './App.css';
 
 
 
-const App = () => {
+class App extends Component {
+  constructor() {
+    super()
 
-  const [allBooks, setBooks] = useState([])
-  // const [filteredBooks, setFilter] = useState([])
-  const [savedBooks, setSaved] = useState([])
-  const [error, setError] = useState('')
-
-
-  // useEffect(() => {
-  //   fetchBooks()
-  //     .then(data => setBooks(data))
-  //     .catch(error => {
-  //       console.log("Oh no!", error)
-  //     });
-  //   console.log(allBooks)
-  // }, [])
-
-
-  const getBooks = async () => {
-    const url = 'https://gutendex.com/books'
-    setError('')
-
-    try {
-      const response = await fetch(url)
-      const allBooks = await response.json()
-      setBooks(allBooks)
-    } catch(error) {
-      setError(error.message)
+    this.state = {
+      bookData: [],
+      filteredBooks: [],
+      savedBooks: []
     }
   }
 
-  useEffect(() => {
-    getBooks()
-  },[])
-  // useEffect(() => {
-  //   fetchBooks()
-  //     .then(data => setFilter(data))
-  //     .catch(error => {
-  //       console.log("Oh no!", error)
-  //     });
-  // }, [])
 
+  componentDidMount() {
+    fetchBooks()
+      .then(data => this.setState({ bookData: data.results, filteredBooks: data.results }))
+      .catch(error => {
+        console.log("Oh no!", error)
+      });
+  }
 
-  const filterBooks = (subject) => {
+  filterBooks = (subject) => {
     if (subject === 'Any') {
-      setBooks(allBooks)
+      this.setState({ filteredBooks: this.state.bookData })
     } else {
-      let filtBySubject = allBooks.filter(book => {
+      let filtBySubject = this.state.bookData.filter(book => {
         let combinedSubjects = book.subjects.join(' ')
         return combinedSubjects.includes(subject)
 
       })
-      setBooks(filtBySubject)
+      this.setState({ filteredBooks: filtBySubject })
     }
   }
 
-  const saveBook = (savedBook) => {
-    const isSaved = savedBooks.find(foundBook => foundBook.id === savedBook.id)
-    if (!isSaved) {
-      setSaved([...savedBooks, savedBook])
-
+  saveBook = (book) => {
+    if (!this.state.savedBooks.includes(book)) {
+      console.log('saved book', book)
+      this.setState({ savedBooks: [...this.state.savedBooks, book ]})
+      console.log(this.state.savedBooks)
     }
 
   }
 
-  return (
-    <div className="App">
-      <header className="header">
-        <h1>GÜT  BOOKS</h1>
-        < Navbar />
-      </header>
-      <main className="shelf-display">
-        <Switch >
-          <Route exact path='/' render={() =>
-            <MainShelf bookDrop={allBooks} filterBooks={filterBooks} />} />
 
-          <Route path="/saved" render={() => {
-            <SaveShelf savedBooks={savedBooks} filterBooks={filterBooks} />
-          }} />
-          <Route path='/:id' render={({ match }) => {
-            let bookToRender = allBooks.find(book => book.id === match.params.id)
-            return <BookDetails {...bookToRender} bookId={match.params.id} saveBook={saveBook} />
-          }} />
-        </Switch>
+  render() {
+    return (
+      <div className="App">
+        <header className="header">
+          <h1>GÜT  BOOKS</h1>
+          < Navbar />
+        </header>
+        <main className="shelf-display">
+          <Switch >
+            <Route exact path='/' render={() =>
+              <MainShelf bookDrop={this.state.filteredBooks} filterBooks={this.filterBooks} />} />
 
-      </main>
-    </div>
-  )
+            <Route path="/saved" render={() => {
+              <SaveShelf savedBooks={this.state.savedBooks} filterBooks={this.filterBooks} />
+            }} />
+            <Route path='/:id' render={({ match }) => {
+              let bookToRender = this.state.bookData.find(book => book.id === match.params.id)
+              return <BookDetails {...bookToRender} bookId={match.params.id} saveBook={this.saveBook} />
+            }} />
+          </Switch>
+
+        </main>
+      </div>
+    )
+  }
+
+
+
 
 }
 

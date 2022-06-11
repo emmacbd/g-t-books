@@ -14,7 +14,8 @@ async function fetchSingleBook(id) {
     if (!response.ok) {
         throw new Error('Network response was not OK')
     }
-    return await response.json()
+    const singleBook = response.json()
+    return singleBook
 }
 
 export { fetchBooks, fetchSingleBook }

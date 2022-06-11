@@ -25,7 +25,7 @@ const BookDetails = ({ bookId, saveBook }) => {
                     <div className="selected-book-details">
                         <p>Author : {bookInfo.authors.name}</p>
                         <p>Text : {bookInfo.formats.html} </p>
-                        <button onClick={(event) => saveBook(bookInfo)}>Add To My Shelf</button>
+                        <button onClick={() => saveBook(bookInfo)}>Add To My Shelf</button>
                     </div>
                 </div>
             </section>
