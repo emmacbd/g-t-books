@@ -11,7 +11,7 @@ const Navbar = () => {
                 <p className='all-books'>All Books</p>
             </NavLink>
 
-            <NavLink className="nav-link" to="/my-shelf">
+            <NavLink className="nav-link" to="/saved">
                 <p className='my-shelf'>My Shelf</p>
             </NavLink>
         </nav>

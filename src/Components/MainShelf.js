@@ -1,15 +1,20 @@
 import React from 'react';
 import Books from './Books';
 import BookFilter from './BookFilter';
+import { NavLink } from 'react-router-dom';
 import '../styles/MainShelf.scss';
 
 
 //add title conditional 
 
-function MainShelf({ bookDrop, filterBooks }) {
+const MainShelf = ({ bookDrop, filterBooks }) => {
+    console.log('what is going on', bookDrop)
     const bookSpines = bookDrop.map(book => {
         return (
-            <Books key={book.id} title={book.title.substring(0, 39)} />
+            <NavLink className="book-nav" key={book.id} id={book.id} to={`/${book.id}`}>
+                <Books title={book.title.substring(0, 39)} />
+            </NavLink>
+
         );
     });
 
@@ -17,7 +22,7 @@ function MainShelf({ bookDrop, filterBooks }) {
         <section className="shelf-wrapper">
             <BookFilter filterBooks={filterBooks} />
             <section className="book-shelf">
-                {bookSpines }
+                {bookSpines}
             </section>
         </section>
     );

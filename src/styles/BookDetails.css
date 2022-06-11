@@ -1,0 +1,12 @@
+.selected-book-section {
+    height: 100vh;
+    margin-top: 20%;
+    width: 100%;
+    display: flex;
+    border: solid blue 3px;
+}
+
+.selected-book-info {
+    color: white;
+
+}
