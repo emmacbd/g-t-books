@@ -2,13 +2,14 @@ import React from 'react';
 import Books from '../Books/Books';
 import BookFilter from '../BookFilter/BookFilter';
 import { NavLink } from 'react-router-dom';
+import Loading from '../Loading/Loading';
 import './MainShelf.scss';
 
 
 //add title conditional 
 
-const MainShelf = ({ bookDrop, filterBooks }) => {
-    console.log('made it to main')
+const MainShelf = ({ bookDrop, filterBooks, isLoading }) => {
+    console.log('made it to main', bookDrop)
     const bookSpines = bookDrop.map(book => {
         return (
             <NavLink className="book-nav" key={book.id} id={book.id} to={`/${book.id}`}>
@@ -25,7 +26,7 @@ const MainShelf = ({ bookDrop, filterBooks }) => {
                 {bookSpines}
             </section>
         </section>
-    );
+    )
 }
 
 

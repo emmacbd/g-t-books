@@ -1,10 +1,13 @@
-async function fetchBooks() {
-    try {
-        const response = await fetch('https://gutendex.com/books')
-        const data = await response.json()
-        return data
-    } catch (error) {
-        window.alert(error)
+const fetchBooks = {
+    getBookData() {
+        return fetch('https://gutendex.com/books/')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('error')
+                } else {
+                    return response.json()
+                }
+            })
     }
 }
 

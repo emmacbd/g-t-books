@@ -13,8 +13,8 @@ const BookDetails = ({ bookId, saveBook, savedBooks, removeBook }) => {
     }, [])
 
     const isSaved = () => {
-        if (!savedBooks.includes(bookInfo)) {
-
+        if (savedBooks.includes(bookInfo)) {
+            return true
         }
     }
 
@@ -29,7 +29,7 @@ const BookDetails = ({ bookId, saveBook, savedBooks, removeBook }) => {
                     <div className="selected-book-details">
                         <p>Author : {bookInfo.authors.name}</p>
                         <p>Text : {bookInfo.formats.html} </p>
-                        {(!isSaved) ? <button onClick={() => saveBook(bookInfo)}>Add To My Shelf</button> : ' '}
+                        {isSaved ? <button onClick={() => saveBook(bookInfo)}>Add To My Shelf</button> : ' '}
                     </div>
                 </div>
             </section>

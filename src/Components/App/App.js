@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { fetchBooks } from '../../apiCalls';
 import MainShelf from '../MainShelf/MainShelf';
@@ -6,86 +6,76 @@ import SaveShelf from '../SaveShelf/SaveShelf';
 import BookDetails from '../BookDetails/BookDetails';
 import Header from '../Header/Header';
 import Navbar from '../Navbar/Navbar';
+import Loading from '../Loading/Loading';
 import './App.css';
 
 
 
-class App extends Component {
-  constructor() {
-    super()
-
-    this.state = {
-      bookData: [],
-      filteredBooks: [],
-      savedBooks: []
-    }
-  }
+const App = () => {
+  const [allBooks, setBooks] = useState([])
+  const [savedBooks, setSaved] = useState([])
+  const [error, setError] = useState('')
+  const [isLoading, setIsLoading] = useState(true)
 
 
-  componentDidMount() {
-    fetchBooks()
-      .then(data => this.setState({ bookData: data.results, filteredBooks: data.results }))
-      .catch(error => {
-        console.log("Oh no!", error)
-      });
-  }
+  useEffect(() => {
+    fetchBooks.getBookData()
+      .then(data => setBooks(data.results))
+      .catch(error => setError(error.message))
+  }, [])
 
-  filterBooks = (subject) => {
+
+  const filterBooks = (subject) => {
     if (subject === 'Any') {
-      this.setState({ filteredBooks: this.state.bookData })
+      setBooks(allBooks)
     } else {
-      let filtBySubject = this.state.bookData.filter(book => {
+      let filtBySubject = allBooks.filter(book => {
         let combinedSubjects = book.subjects.join(' ')
         return combinedSubjects.includes(subject)
 
       })
-      this.setState({ filteredBooks: filtBySubject })
+      setBooks(filtBySubject)
     }
   }
 
-  saveBook = (book) => {
+  const saveBook = (book) => {
 
-    if (!this.state.savedBooks.includes(book)) {
-      this.setState({ savedBooks: [...this.state.savedBooks, book] })
+    if (!savedBooks.includes(book)) {
+      setSaved([...savedBooks, book])
     }
 
   }
 
-  removeBook = (id) => {
-    const updatedBooks = this.state.savedBooks.filter(book => book.id != id);
+  const removeBook = (id) => {
+    const updatedBooks = allBooks.filter(book => book.id != id);
 
-    this.setState({ savedBooks: updatedBooks });
-  
+    savedBooks(updatedBooks);
+
   }
 
-
-  render() {
-    return (
-      <>
+  return (
+    <>
       <div className="App">
         <Header />
-        <main className="main">
-          <Switch >
-            <Route exact path='/' render={() =>
-              <MainShelf bookDrop={this.state.filteredBooks} filterBooks={this.filterBooks} />} />
+        < Navbar />
+        <Switch >
+          <Route exact path='/'>
+            {allBooks ? <MainShelf bookDrop={allBooks} filterBooks={filterBooks} /> : <Loading />}
+          </Route>
 
-            <Route exact path='/saved' render={() => {
-              <SaveShelf savedBooks={this.state.savedBooks} filterBooks={this.filterBooks} />
-            }} />
-            <Route path='/:id' render={({ match }) => {
-              let bookToRender = this.state.bookData.find(book => book.id === match.params.id)
-              return <BookDetails {...bookToRender} bookId={match.params.id} saveBook={this.saveBook} savedBooks={this.state.savedBooks} removeBook={this.removeBook}/>
-            }} />
-          </Switch>
+          <Route exact path='/saved'>
+            <SaveShelf savedBooks={savedBooks} filterBooks={filterBooks} />
+          </Route>
 
-        </main>
+
+          <Route path='/:id' render={({ match }) => {
+            let bookToRender = allBooks.find(book => book.id === match.params.id)
+            return <BookDetails {...bookToRender} bookId={match.params.id} saveBook={saveBook} savedBooks={savedBooks} removeBook={removeBook} />
+          }} />
+        </Switch>
       </div>
-      </>
-    )
-  }
-
-
-
+    </>
+  )
 
 }
 
