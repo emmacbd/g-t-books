@@ -1,13 +1,13 @@
 import React from 'react';
 import Books from '../Books/Books';
 import { NavLink } from 'react-router-dom';
-import BookFilter from '../BookFilter/BookFilter';
+import PropTypes from 'prop-types';
 import EmptyShelf from '../EmptyShelf/EmptyShelf';
 import '../EmptyShelf/EmptyShelf.scss';
 import './SaveShelf.scss';
 
 
-const SaveShelf = ({ savedBooks, filterBooks }) => {
+const SaveShelf = ({ savedBooks}) => {
     const savedSpines = savedBooks.map(book => {
         return (
             <NavLink className="book-nav" key={book.id} id={book.id} to={`/${book.id}`}>
@@ -28,6 +28,5 @@ const SaveShelf = ({ savedBooks, filterBooks }) => {
     );
 }
 
-
-
 export default SaveShelf;
+

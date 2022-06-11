@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Books.scss';
 
 
@@ -12,3 +13,7 @@ const Books = ({ title }) => {
 
 
 export default Books;
+
+Books.propTypes = {
+    title: PropTypes.string.isRequired
+}

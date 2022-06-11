@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './BookFilter.css';
 
 
@@ -42,3 +43,7 @@ const BookFilter = ({ filterBooks }) => {
 
 
 export default BookFilter;
+
+BookFilter.propTypes = {
+    filterBooks: PropTypes.func.isRequired
+}

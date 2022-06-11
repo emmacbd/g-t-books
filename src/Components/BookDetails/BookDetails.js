@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { fetchSingleBook } from '../../apiCalls';
+import PropTypes from 'prop-types';
 import './BookDetails.css';
 
 
@@ -46,3 +47,10 @@ return (
 }
 
 export default BookDetails;
+
+
+BookDetails.propTypes = {
+    bookId: PropTypes.number.isRequired,
+     saveBook: PropTypes.func.isRequired,
+     savedBooks: PropTypes.arrayOf(PropTypes.object)
+}
