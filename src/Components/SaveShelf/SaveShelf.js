@@ -7,10 +7,10 @@ import '../EmptyShelf/EmptyShelf.scss';
 import './SaveShelf.scss';
 
 
-const SaveShelf = ({ savedBooks}) => {
+const SaveShelf = ({ savedBooks }) => {
     const savedSpines = savedBooks.map(book => {
         return (
-            <NavLink className="book-nav" key={book.id} id={book.id} to={`/${book.id}`}>
+            <NavLink className="book-nav" key={Date.now()} id={book.id} to={`/${book.id}`}>
                 <Books title={book.title.substring(0, 39)} />
             </NavLink>
         );
@@ -30,3 +30,6 @@ const SaveShelf = ({ savedBooks}) => {
 
 export default SaveShelf;
 
+SaveShelf.propTypes = {
+    savedBooks: PropTypes.arrayOf(PropTypes.object)
+}

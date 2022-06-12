@@ -1,8 +1,9 @@
+/* 
+* {
+  box-sizing: border-box;
+ }
 
-
-/* header {
-  background: url(books.jpeg) center fixed;
-  background-size: cover;
-  width: 100vw;
-  padding-top: 1%;
-} */
+ *:before,
+ *:after {
+  box-sizing: border-box;
+ } */

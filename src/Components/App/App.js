@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { fetchBooks } from '../../apiCalls';
 import MainShelf from '../MainShelf/MainShelf';
 import SaveShelf from '../SaveShelf/SaveShelf';
@@ -7,8 +7,8 @@ import BookDetails from '../BookDetails/BookDetails';
 import Header from '../Header/Header';
 import Navbar from '../Navbar/Navbar';
 import Loading from '../Loading/Loading';
+import Footer from '../Footer/Footer';
 import './App.css';
-
 
 
 const App = () => {
@@ -40,21 +40,22 @@ const App = () => {
 
       })
       setFilter(filtBySubject)
+
     }
   }
 
   const saveBook = (book) => {
-
+    console.log(book)
     if (!savedBooks.includes(book)) {
       setSaved([...savedBooks, book])
-    }
 
+    }
   }
+
 
   const removeBook = (id) => {
     const updatedBooks = allBooks.filter(book => book.id != id);
-
-    savedBooks(updatedBooks);
+    setSaved(updatedBooks);
 
   }
 
@@ -67,17 +68,15 @@ const App = () => {
           <Route exact path='/'>
             {allBooks ? <MainShelf bookDrop={filteredBooks} filterBooks={filterBooks} /> : <Loading />}
           </Route>
-
           <Route exact path='/saved'>
             <SaveShelf savedBooks={savedBooks} filterBooks={filterBooks} />
           </Route>
-
-
           <Route path='/:id' render={({ match }) => {
             let bookToRender = allBooks.find(book => book.id === match.params.id)
             return <BookDetails {...bookToRender} bookId={match.params.id} saveBook={saveBook} savedBooks={savedBooks} removeBook={removeBook} />
           }} />
         </Switch>
+        <Footer />
       </div>
     </>
   )

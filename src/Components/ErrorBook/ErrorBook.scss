@@ -1,0 +1,12 @@
+.error-book {
+    background: url('./assets/book-error.jpeg') no-repeat;
+    background-size: cover;
+    font-size: 27pt;
+    height: 100vh;
+    padding: 2%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: black 3px;
+    color: white;
+}

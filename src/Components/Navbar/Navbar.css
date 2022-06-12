@@ -2,10 +2,11 @@
     display: flex;
     flex-direction: column;
     font-weight: bolder;
-    background: rgb(56 16 51);
+    background: radial-gradient(circle, rgba(56,16,51,1) 84%, rgba(41,34,40,1) 100%);
     color: #fff;
     font-size: 25px;
     margin-bottom: 0%;
+    width:100vw
 }
 
 .active {

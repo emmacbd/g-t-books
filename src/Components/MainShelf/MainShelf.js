@@ -33,6 +33,6 @@ const MainShelf = ({ bookDrop, filterBooks }) => {
 export default MainShelf;
 
 MainShelf.propTypes = {
-    bookdrop: PropTypes.arrayOf(PropTypes.object).isRequired,
+    bookdrop: PropTypes.arrayOf(PropTypes.object),
     filterBooks: PropTypes.func.isRequired
 }
