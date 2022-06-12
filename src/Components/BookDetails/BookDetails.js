@@ -36,7 +36,7 @@ const BookDetails = ({ bookId, saveBook, savedBooks, removeBook }) => {
                     <div className="selected-book-details">
                         <p>Author : {bookInfo.authors[0].name.split(',').reverse().join(' ')}</p>
                         <p>Text :  {bookInfo.formats["text/html"]}</p>
-                        {isSaved ? <button onClick={() => saveBook(bookInfo)}>Add To My Shelf</button> :
+                        {isSaved ? <button className='save-button' onClick={() => saveBook(bookInfo)}>Add To My Shelf</button> :
                             <p>This book has been added to your shelf!</p>}
                     </div>
                 </div>

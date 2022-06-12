@@ -1,4 +1,10 @@
-[{
+
+{
+  "count": 68192,
+  "next": "https://gutendex.com/books/?page=2",
+  "previous": null,
+  "results": 
+    [{
     "id": 1342,
     "title": "Pride and Prejudice",
     "authors": [
@@ -117,4 +123,4 @@
     },
     "download_count": 29156
   }
-]
+]}

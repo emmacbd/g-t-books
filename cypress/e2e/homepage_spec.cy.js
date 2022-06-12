@@ -1,12 +1,19 @@
+
 describe('Page on load', () => {
   beforeEach(() => {
-    cy.intercept('GET', 'https://gutendex.com/books/', { fixture: 'book-data.json' })
+    cy.intercept('https://gutendex.com/books/',
+      { fixture: 'book-data.json' })
     cy.visit('http://localhost:3000/')
   })
 
-
   it('Should have page title that says GÜT BOOKS', () => {
     cy.get('h1').contains('GÜT BOOKS')
+  })
+
+  it('Should have a bookshelf length of 3', () => {
+    cy.get('.book-nav').should('have.length', 3)
+    cy.get('.book-nav').first().contains('Pride and Prejudice')
+    cy.get('.book-nav').last().contains('Alice')
   })
 
   it('Should display nav bar with links to all books and my shelf', () => {
@@ -31,7 +38,7 @@ describe('Page on load', () => {
     cy.contains('ALL BOOKS').click({ force: true })
     cy.url().should('eq', 'http://localhost:3000/')
     cy.get('h1').contains('GÜT BOOKS')
-    
+
   })
 })
 

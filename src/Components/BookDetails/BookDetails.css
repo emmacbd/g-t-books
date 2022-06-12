@@ -15,7 +15,7 @@
 
 }
 
-button {
+.save-button {
     background: white;
     padding: 15px 100px;
     margin: 10px 4px;
@@ -26,11 +26,11 @@ button {
 }
 
 
-button:active {
+.save-button:active {
     background: olive;
 }
 
-button:focus {
+.save-button:focus {
     background: olive;
 }
 
