@@ -7,6 +7,7 @@ import BookDetails from '../BookDetails/BookDetails';
 import Header from '../Header/Header';
 import Navbar from '../Navbar/Navbar';
 import Loading from '../Loading/Loading';
+import Footer from '../Footer/Footer';
 import './App.css';
 
 
@@ -67,17 +68,15 @@ const App = () => {
           <Route exact path='/'>
             {allBooks ? <MainShelf bookDrop={filteredBooks} filterBooks={filterBooks} /> : <Loading />}
           </Route>
-
           <Route exact path='/saved'>
             <SaveShelf savedBooks={savedBooks} filterBooks={filterBooks} />
           </Route>
-
-
           <Route path='/:id' render={({ match }) => {
             let bookToRender = allBooks.find(book => book.id === match.params.id)
             return <BookDetails {...bookToRender} bookId={match.params.id} saveBook={saveBook} savedBooks={savedBooks} removeBook={removeBook} />
           }} />
         </Switch>
+        <Footer />
       </div>
     </>
   )
