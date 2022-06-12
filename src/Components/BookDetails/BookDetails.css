@@ -4,14 +4,31 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    border: solid blue 3px;
+    justify-content: space-between;
+    background:url('./assets/error-book.jpeg')bottom
 }
 
 .selected-book-info {
     color: white;
+    font-size: 16pt;
 
 }
 
 button {
-    width:20%;
+    background: white;
+    padding: 15px 100px;
+    margin: 10px 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+}
+
+
+button:active {
+    background: olive;
+}
+
+button:focus {
+    background: olive;
 }

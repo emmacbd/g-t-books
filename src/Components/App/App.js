@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { fetchBooks } from '../../apiCalls';
 import MainShelf from '../MainShelf/MainShelf';
 import SaveShelf from '../SaveShelf/SaveShelf';
@@ -8,7 +8,6 @@ import Header from '../Header/Header';
 import Navbar from '../Navbar/Navbar';
 import Loading from '../Loading/Loading';
 import './App.css';
-
 
 
 const App = () => {
@@ -40,21 +39,22 @@ const App = () => {
 
       })
       setFilter(filtBySubject)
+
     }
   }
 
   const saveBook = (book) => {
-
+    console.log(book)
     if (!savedBooks.includes(book)) {
       setSaved([...savedBooks, book])
-    }
 
+    }
   }
+
 
   const removeBook = (id) => {
     const updatedBooks = allBooks.filter(book => book.id != id);
-
-    savedBooks(updatedBooks);
+    setSaved(updatedBooks);
 
   }
 

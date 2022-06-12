@@ -1,5 +1,7 @@
 .book-filter {
-    background: rgb(56 16 51);
+    background: radial-gradient(circle, #381033 84%, rgba(41,34,40,1) 100%);
+    box-shadow: 0 0 5px 10px #381033;
+    width:100vw;
     color: #fff;
     font-size: 25px;
     margin-bottom: 5%;

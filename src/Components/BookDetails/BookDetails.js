@@ -23,22 +23,27 @@ const BookDetails = ({ bookId, saveBook, savedBooks, removeBook }) => {
 
     let showBook = () => {
         if (!bookInfo) {
-            return <ErrorBook/>
+            return <ErrorBook />
         } else {
-            return <section className="selected-book-section">
+            return <section className="selected-book-section" >
                 <img className="selected-book-image" src={bookInfo.formats.jpeg} />
                 <div className="selected-book-info">
+                    <img
+                        className="book-image"
+                        src={bookInfo.formats["image/jpeg"]}
+                        alt={bookInfo.title}
+                    />
                     <h2 className="selected-title">{bookInfo.title.substring(0, 50)}</h2>
                     <div className="selected-book-details">
                         <p>Author : {bookInfo.authors[0].name.split(',').reverse().join(' ')}</p>
-                        <p>Text : {Object.keys(bookInfo.formats).split(',')} </p>
-                        {isSaved ? <button onClick={() => saveBook(bookInfo)}>Add To My Shelf</button> : ' '}
+                        <p>Text :  {bookInfo.formats["text/html"]}</p>
+                        {isSaved ? <button onClick={() => saveBook(bookInfo)}>Add To My Shelf</button> :
+                            <p>This book has been added to your shelf!</p>}
                     </div>
                 </div>
             </section>
         }
     }
-
     return (
         <>
             {showBook()}
@@ -50,7 +55,7 @@ export default BookDetails;
 
 
 BookDetails.propTypes = {
-    bookId: PropTypes.number.isRequired,
+    bookId: PropTypes.string.isRequired,
     saveBook: PropTypes.func.isRequired,
     savedBooks: PropTypes.arrayOf(PropTypes.object)
 }
