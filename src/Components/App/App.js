@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { fetchBooks } from '../../apiCalls';
 import MainShelf from '../MainShelf/MainShelf';
 import SaveShelf from '../SaveShelf/SaveShelf';
@@ -45,7 +45,6 @@ const App = () => {
   }
 
   const saveBook = (book) => {
-    console.log(book)
     if (!savedBooks.includes(book)) {
       setSaved([...savedBooks, book])
 
