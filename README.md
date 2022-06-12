@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# GÜT BOOKS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About The Project
+GÜT  BOOKS provides a place to peruse classic (and free) literature to those who long for the quiet serenity and leather-scented ambiance of an well-worn library without having to change out of their dressing gowns. 
 
-## Available Scripts
+This was my final project for Mod 3 in Turing School of Software and Design's Front End Engineering program. 
 
-In the project directory, you can run:
 
-### `npm start`
+With this application users are able to view a variety of free e-books sourced by [Project Gutenberg](https://www.gutenberg.org/). The user can flip through all selections, or choose to filter by their preferred genre. The user can click on their desired book to find more information, including a link to a free e-book. Users may also choose to save their selected tome to their own personal library, found under the link 'My Shelf'. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies
+* React | React Router
+* Cypress
+* Javascript
+* HTML
+* CSS
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Set Up Instructions
+#### Deployed Site
+1. Visit [ GÜT BOOKS]() via your browser
 
-### `npm test`
+#### Running it Locally
+1. Clone this repo to your local machine
+2. `cd ` into `g-t-books`
+3. Then, run `npm install `from your command line. Do not run `npm audit fix --force`
+4. After you run npm install inside of your copy of this repo, run:
+`npm start`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This command runs the app in the development mode locally so that you can view and use the application in your browser.
+```
+You can now view GÜT BOOKS in the browser.
+  Local:  http://localhost:3000
+```
 
-### `npm run build`
+5. When you are done exploring _**GÜT BOOKS**_ make sure that you type `Control + C` in your terminal to stop the server before closing your Terminal.
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Using the Application
+Upon load, a user will see a populated bookshelf. The user can choose to filter by genre with the dropdown menu above the bookshelf. They can click on their chosen book, which will take the to that book's details. They can return home by clicking All Books from the navbar, using the brower back button, or removing the `/(book's id)` from the URL.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![All Books View]()
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Filtering By Genre
+If wishing to narrow down their book selection, the user can click the dropdown button above the main shelf, and. 
 
-### `npm run eject`
+![Filter Functionality]()
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Future Features
+* Add delete functionality so user may remove books from their saved shelf
+* Incorporate local storage so user's saved books persist on page refresh 
+* Add additional links for variety of free formats 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+----
+## Contributor
+- [Emma Brooke-Davison](https://github.com/emmacbd)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Acknowledgments
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* [Turing Scool of Software & Design](https://turing.edu/)
+* Turing Instructors: Kayla Gordon and Robbie Jaeger
+* [Gutendex](https://gutendex.com/)
