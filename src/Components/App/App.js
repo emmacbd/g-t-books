@@ -45,7 +45,6 @@ const App = () => {
   }
 
   const saveBook = (book) => {
-    console.log(book)
     if (!savedBooks.includes(book)) {
       setSaved([...savedBooks, book])
 
