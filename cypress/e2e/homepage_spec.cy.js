@@ -14,13 +14,13 @@ describe('Page on load', () => {
     cy.get('.nav-link').children().last().contains('MY SHELF')
   })
 
-  it('Should be able to click on All Books', () => {
+  it('Should be able to click on All Books NavLink', () => {
     cy.contains('ALL BOOKS').click({ force: true })
     cy.url().should('eq', 'http://localhost:3000/')
   })
 
 
-  it('Should be able to click on My Shelf', () => {
+  it('Should be able to click on My Shelf NavLink', () => {
     cy.contains('MY SHELF').click({ force: true })
     cy.url().should('eq', 'http://localhost:3000/saved')
   })

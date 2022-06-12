@@ -1,10 +1,11 @@
 .selected-book-section {
     height: 100vh;
     margin-top: 10%;
-    width: 100%;
+    width: 100vw;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     background:url('./assets/error-book.jpeg')bottom
 }
 
@@ -31,4 +32,9 @@ button:active {
 
 button:focus {
     background: olive;
+}
+
+.book-image {
+    width: 33%;
+    height: 50%;
 }

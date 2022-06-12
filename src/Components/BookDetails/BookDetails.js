@@ -26,14 +26,13 @@ const BookDetails = ({ bookId, saveBook, savedBooks, removeBook }) => {
             return <ErrorBook />
         } else {
             return <section className="selected-book-section" >
-                <img className="selected-book-image" src={bookInfo.formats.jpeg} />
                 <div className="selected-book-info">
                     <img
                         className="book-image"
                         src={bookInfo.formats["image/jpeg"]}
                         alt={bookInfo.title}
                     />
-                    <h2 className="selected-title">{bookInfo.title.substring(0, 50)}</h2>
+                    <h2 className="selected-title">{bookInfo.title}</h2>
                     <div className="selected-book-details">
                         <p>Author : {bookInfo.authors[0].name.split(',').reverse().join(' ')}</p>
                         <p>Text :  {bookInfo.formats["text/html"]}</p>
