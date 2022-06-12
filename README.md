@@ -41,7 +41,7 @@ Upon load, a user will see a populated bookshelf. The user can choose to filter 
 ![Main Page Functionality](https://user-images.githubusercontent.com/93603551/173256292-f4def0d0-d695-4c22-b76c-677b46e218bb.gif)
 
 #### Filtering By Genre
-If wishing to narrow down their book selection, the user can click the dropdown button above the main shelf, and. 
+If wishing to narrow down their book selection, the user can click the dropdown button above the main shelf, and filter by multiple genres. 
 
 ![Filter Functionality](https://user-images.githubusercontent.com/93603551/173256375-4607994d-a942-4d1c-bf23-faaa973fed4a.gif)
 
