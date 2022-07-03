@@ -17,7 +17,7 @@ With this application users are able to view a variety of free e-books sourced b
 
 ## Set Up Instructions
 #### Deployed Site
-1. Visit [ GÜT BOOKS]() via your browser
+1. Visit [GÜT BOOKS](https://g-t-books.herokuapp.com/) via your browser
 
 #### Running it Locally
 1. Clone this repo to your local machine
@@ -38,12 +38,12 @@ You can now view GÜT BOOKS in the browser.
 ## Using the Application
 Upon load, a user will see a populated bookshelf. The user can choose to filter by genre with the dropdown menu above the bookshelf. They can click on their chosen book, which will take the to that book's details. They can return home by clicking All Books from the navbar, using the brower back button, or removing the `/(book's id)` from the URL.
 
-![All Books View]()
+![Main Page Functionality](https://user-images.githubusercontent.com/93603551/173256292-f4def0d0-d695-4c22-b76c-677b46e218bb.gif)
 
 #### Filtering By Genre
-If wishing to narrow down their book selection, the user can click the dropdown button above the main shelf, and. 
+If wishing to narrow down their book selection, the user can click the dropdown button above the main shelf, and filter by multiple genres. 
 
-![Filter Functionality]()
+![Filter Functionality](https://user-images.githubusercontent.com/93603551/173256375-4607994d-a942-4d1c-bf23-faaa973fed4a.gif)
 
 ## Future Features
 * Add delete functionality so user may remove books from their saved shelf
