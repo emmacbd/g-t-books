@@ -44,9 +44,10 @@ const App = () => {
     }
   }
 
-  const saveBook = (book) => {
-    if (!savedBooks.includes(book)) {
-      setSaved([...savedBooks, book])
+  const saveBook = (tome) => {
+
+    if (!savedBooks.map(book => book.id).includes(tome.id)) {
+      setSaved([...savedBooks, tome])
 
     }
   }
