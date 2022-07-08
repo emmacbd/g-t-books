@@ -1,7 +1,7 @@
 # GÜT BOOKS
 
 ## About The Project
-GÜT  BOOKS provides a place to peruse classic (and free) literature to those who long for the quiet serenity and leather-scented ambiance of an well-worn library without having to change out of their dressing gowns. 
+GÜT  BOOKS provides a place to peruse classic (and free) literature to those who long for the quiet serenity and leather-scented ambiance of a well-worn library without having to change out of their dressing gowns. 
 
 This was my final project for Mod 3 in Turing School of Software and Design's Front End Engineering program. 
 
